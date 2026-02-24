@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Balach Rahu — AI-Powered Fashion Platform",
@@ -12,8 +14,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body style={{ margin: 0, padding: 0 }}>{children}</body>
+    <html lang="en" data-theme="pret">
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
