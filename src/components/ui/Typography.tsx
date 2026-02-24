@@ -3,10 +3,11 @@ import { clsx } from "clsx";
 interface TypographyProps {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 /** Oversized display heading — hero/landing sections */
-export function DisplayHeading({ children, className }: TypographyProps) {
+export function DisplayHeading({ children, className, style }: TypographyProps) {
   return (
     <h1
       className={clsx(
@@ -15,6 +16,7 @@ export function DisplayHeading({ children, className }: TypographyProps) {
         "text-theme-primary",
         className
       )}
+      style={style}
     >
       {children}
     </h1>
@@ -22,7 +24,7 @@ export function DisplayHeading({ children, className }: TypographyProps) {
 }
 
 /** Section heading */
-export function SectionHeading({ children, className }: TypographyProps) {
+export function SectionHeading({ children, className, style }: TypographyProps) {
   return (
     <h2
       className={clsx(
@@ -31,6 +33,7 @@ export function SectionHeading({ children, className }: TypographyProps) {
         "text-theme-primary",
         className
       )}
+      style={style}
     >
       {children}
     </h2>
@@ -38,7 +41,7 @@ export function SectionHeading({ children, className }: TypographyProps) {
 }
 
 /** Card or subsection heading */
-export function CardHeading({ children, className }: TypographyProps) {
+export function CardHeading({ children, className, style }: TypographyProps) {
   return (
     <h3
       className={clsx(
@@ -46,6 +49,7 @@ export function CardHeading({ children, className }: TypographyProps) {
         "text-theme-primary",
         className
       )}
+      style={style}
     >
       {children}
     </h3>
@@ -53,7 +57,7 @@ export function CardHeading({ children, className }: TypographyProps) {
 }
 
 /** Small label — metadata, captions, tags */
-export function Label({ children, className }: TypographyProps) {
+export function Label({ children, className, style }: TypographyProps) {
   return (
     <span
       className={clsx(
@@ -61,6 +65,7 @@ export function Label({ children, className }: TypographyProps) {
         "text-theme-secondary",
         className
       )}
+      style={style}
     >
       {children}
     </span>
@@ -68,7 +73,7 @@ export function Label({ children, className }: TypographyProps) {
 }
 
 /** Body paragraph text */
-export function Body({ children, className }: TypographyProps) {
+export function Body({ children, className, style }: TypographyProps) {
   return (
     <p
       className={clsx(
@@ -76,6 +81,7 @@ export function Body({ children, className }: TypographyProps) {
         "text-theme-secondary",
         className
       )}
+      style={style}
     >
       {children}
     </p>
@@ -83,7 +89,7 @@ export function Body({ children, className }: TypographyProps) {
 }
 
 /** Accent / highlight text — gold in bridal, burgundy in pret */
-export function AccentText({ children, className }: TypographyProps) {
+export function AccentText({ children, className, style }: TypographyProps) {
   return (
     <span
       className={clsx(
@@ -91,6 +97,7 @@ export function AccentText({ children, className }: TypographyProps) {
         "text-theme-accent",
         className
       )}
+      style={style}
     >
       {children}
     </span>
@@ -98,7 +105,7 @@ export function AccentText({ children, className }: TypographyProps) {
 }
 
 /** Monospace technical text */
-export function MonoText({ children, className }: TypographyProps) {
+export function MonoText({ children, className, style }: TypographyProps) {
   return (
     <code
       className={clsx(
@@ -107,6 +114,7 @@ export function MonoText({ children, className }: TypographyProps) {
         "bg-theme-elevated px-2 py-0.5 rounded-sm",
         className
       )}
+      style={style}
     >
       {children}
     </code>
