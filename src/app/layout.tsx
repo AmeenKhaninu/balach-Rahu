@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { WishlistProvider } from "@/contexts/WishlistContext";
+import { MeasurementProvider } from "@/contexts/MeasurementContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,7 +19,9 @@ export default function RootLayout({
     <html lang="en" data-theme="pret">
       <body>
         <ThemeProvider>
-          <WishlistProvider>{children}</WishlistProvider>
+          <WishlistProvider>
+            <MeasurementProvider>{children}</MeasurementProvider>
+          </WishlistProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -11,6 +11,7 @@ import { ThemeSwitcher } from "@/components/ui";
 const navLinks = [
   { label: "nav.collections" as const, href: "/collections" },
   { label: "nav.shop" as const, href: "/shop" },
+  { label: "nav.tailoring" as const, href: "/tailoring" },
   { label: "nav.designStudio" as const, href: "/#ai-studio" },
 ] as const;
 
