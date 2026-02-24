@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { WishlistProvider } from "@/contexts/WishlistContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="pret">
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <WishlistProvider>{children}</WishlistProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
