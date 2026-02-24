@@ -14,6 +14,8 @@ const strings = {
   "nav.customize": { en: "Customize", ur: "اپنی مرضی سے بنائیں" },
   "nav.designStudio": { en: "Design Studio", ur: "ڈیزائن اسٹوڈیو" },
   "nav.myAccount": { en: "My Account", ur: "میرا اکاؤنٹ" },
+  "nav.shop": { en: "Shop", ur: "شاپ" },
+  "nav.wishlist": { en: "Wishlist", ur: "پسندیدہ" },
 
   // Theme
   "theme.pret": { en: "Pret", ur: "پریٹ" },
