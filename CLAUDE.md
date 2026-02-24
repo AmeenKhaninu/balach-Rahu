@@ -9,9 +9,9 @@ This file provides guidance for AI assistants (Claude and others) working in thi
 **Repository:** balach-Rahu
 **Owner:** AmeenKhaninu
 **License:** MIT
-**Status:** Newly initialized — no source code has been added yet.
+**Stack:** Next.js 15 (App Router) · React 19 · Tailwind CSS v4 · JavaScript
 
-This repository was created on December 12, 2025 and currently contains only a LICENSE file. The project is at the planning/setup stage. This document should be updated as the codebase grows.
+An interactive strategic blueprint for an AI-powered Pakistani fashion platform. The app visualizes a six-phase development roadmap, technical architecture, critique of the original plan, and budget tiers — all in a single dark-themed editorial UI.
 
 ---
 
@@ -19,12 +19,20 @@ This repository was created on December 12, 2025 and currently contains only a L
 
 ```
 balach-Rahu/
-├── .git/
+├── app/
+│   ├── globals.css          # Tailwind v4 import + base resets
+│   ├── layout.js            # Root layout — Cormorant Garamond font, metadata
+│   └── page.js              # Entry point — renders FashionTechBlueprint
+├── components/
+│   └── FashionTechBlueprint.jsx  # Main interactive component (client component)
+├── .gitignore
+├── CLAUDE.md                ← this file
 ├── LICENSE
-└── CLAUDE.md   ← this file
+├── eslint.config.mjs
+├── next.config.mjs
+├── package.json
+└── postcss.config.mjs
 ```
-
-No source code, tests, configuration files, or CI/CD pipelines have been committed yet.
 
 ---
 
@@ -123,33 +131,71 @@ Validate input at system boundaries (user input, external APIs). Trust internal 
 
 ---
 
-## Setting Up This Project (Template)
+## Project Setup
 
-When the project is initialized with a specific language or framework, update this section with:
+### Requirements
+
+- Node.js 18+
 
 ### Installation
 
 ```bash
-# Add installation steps here when the stack is decided
+npm install
 ```
 
 ### Running Locally
 
 ```bash
-# Add local dev server / run commands here
+npm run dev
+# → http://localhost:3000
 ```
 
-### Running Tests
+### Linting
 
 ```bash
-# Add test commands here
+npm run lint
 ```
 
 ### Building for Production
 
 ```bash
-# Add build steps here
+npm run build
+npm start
 ```
+
+---
+
+## Architecture Conventions
+
+### Component Rules
+
+- `app/` — App Router pages and layouts only. No business logic.
+- `components/` — Reusable React components. All stateful components must include `"use client"` at the top.
+- No `src/` directory — files live at project root per Next.js App Router convention.
+
+### Styling
+
+- Tailwind CSS v4 (`@import "tailwindcss"` in `globals.css`).
+- The main component (`FashionTechBlueprint.jsx`) uses inline styles exclusively for fine-grained design control. This is intentional for this component — do not convert to Tailwind classes without explicit instruction.
+- Design tokens (colors, accent, icon) are co-located on each `phases` data object, not in a separate file.
+
+### Fonts
+
+- `Cormorant Garamond` loaded via `next/font/google` in `app/layout.js`.
+- CSS variable: `--font-cormorant`.
+- The component references `'Cormorant Garamond', Georgia, serif` directly in inline styles.
+
+### Data
+
+All content (phases, critiques, budget tiers, architecture layers) lives as static arrays at the top of `components/FashionTechBlueprint.jsx`. There is no external data fetching. To update content, edit those arrays directly.
+
+### Client vs Server Components
+
+| File | Type | Reason |
+|------|------|--------|
+| `app/layout.js` | Server | No interactivity needed |
+| `app/page.js` | Server | Simply re-exports the component |
+| `components/FashionTechBlueprint.jsx` | Client (`"use client"`) | Uses `useState` |
 
 ---
 
